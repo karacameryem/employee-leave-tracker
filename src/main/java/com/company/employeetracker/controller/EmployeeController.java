@@ -25,4 +25,25 @@ public class EmployeeController {
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
+    
+ // Çalışanın izin günlerini azaltma (POST /leave)
+    @PostMapping("/leave")
+    public String requestLeave(@RequestParam Long employeeId, @RequestParam int days) {
+        Employee employee = employeeRepository.findById(employeeId).orElse(null);
+        
+        if (employee == null) {
+            return "Çalışan bulunamadı!";
+        }
+
+        if (employee.getLeaveDays() < days) {
+            return "Yetersiz izin günü!";
+        }
+
+        employee.setLeaveDays(employee.getLeaveDays() - days);
+        employeeRepository.save(employee);
+        
+        return "İzin başarıyla güncellendi! Kalan izin günleri: " + employee.getLeaveDays();
+    }
+
 }
+

@@ -1,4 +1,5 @@
-package com.company.employee_leave_tracker;
+package com.company.employeetracker;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
