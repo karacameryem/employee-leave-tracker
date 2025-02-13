@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çalışan İzin Takip</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Çalışan İzin Takip Sistemi</h2>
+    
+    <h3>Çalışan Ekle</h3>
+    <form id="addEmployeeForm">
+        <input type="text" id="firstName" placeholder="Adı" required><br>
+        <input type="text" id="lastName" placeholder="Soyadı" required><br>
+        <input type="email" id="email" placeholder="Email" required><br>
+        <input type="text" id="department" placeholder="Departman" required><br>
+        <button type="submit">Çalışan Ekle</button>
+    </form>
+
+    <h3>İzin Güncelle</h3>
+    <form id="leaveForm">
+        <input type="number" id="employeeId" placeholder="Çalışan ID" required><br>
+        <input type="number" id="days" placeholder="İzin Gün Sayısı" required><br>
+        <button type="submit">İzin Güncelle</button>
+    </form>
+
+    <h3>Tüm Çalışanlar</h3>
+    <button onclick="getEmployees()">Çalışanları Göster</button>
+    <ul id="employeeList"></ul>
+
+    <script src="app.js"></script>
+</body>
+</html>
